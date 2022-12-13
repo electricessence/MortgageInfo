@@ -5,6 +5,13 @@ using MortgageInfo.Models;
 using MortgageInfo.Persistence;
 using Spectre.Console;
 
+AnsiConsole.Write(new Rule("Mortgage Details"));
+///////////////////////////////////////////////////
+var results = new Mortgage(await GetParameters());
+Summary(results);
+ShowSchedule(results.Schedule);
+///////////////////////////////////////////////////
+
 static async ValueTask<Parameters> GetParameters()
 {
 	var storage = await FileStore<Dictionary<string, string>>.CreateAsync("params.json");
@@ -22,36 +29,40 @@ static async ValueTask<Parameters> GetParameters()
 	return p;
 }
 
-AnsiConsole.Write(new Rule("Mortgage Details"));
-var results = new Mortgage(await GetParameters());
-AnsiConsole.Write(new Rule("Summary"));
-AnsiConsole.WriteLine("Monthly Payment: {0:C2}", results.Payment);
-AnsiConsole.WriteLine("End of Term Interest: {0:C2}", results.Schedule.Last().Interest.Total);
-AnsiConsole.Write(new Rule());
-
-var year = 0;
-foreach (var payments in results.Schedule.Batch(12))
+static void Summary(Mortgage results)
 {
-	if (!AnsiConsole.Confirm($"Show year {++year}?")) break;
-	AnsiConsole.Cursor.MoveUp(1);
+	AnsiConsole.Write(new Rule("Summary"));
+	AnsiConsole.WriteLine("Monthly Payment: {0:C2}", results.Payment);
+	AnsiConsole.WriteLine("End of Term Interest: {0:C2}", results.Schedule.Last().Interest.Total);
+	AnsiConsole.Write(new Rule());
+}
 
-	var table = new Table
+static void ShowSchedule(IEnumerable<Payment> results)
+{
+	var year = 0;
+	foreach (var payments in results.Batch(12))
 	{
-		Title = new TableTitle($"Year {year:00}")
-	};
-	table.AddColumn("Month");
-	table.AddColumn("Interest");
-	table.AddColumn("Principal");
+		if (!AnsiConsole.Confirm($"Show year {++year}?")) break;
+		AnsiConsole.Cursor.MoveUp(1);
 
-	var month = 0;
-	foreach (var payment in payments)
-	{
-		month++;
-		table.AddRow(
-			month.ToString("00"),
-			payment.Interest.Current.ToString("C2"),
-			payment.Principal.Current.ToString("C2"));
+		var table = new Table
+		{
+			Title = new TableTitle($"Year {year:00}")
+		};
+		table.AddColumn("Month");
+		table.AddColumn("Interest");
+		table.AddColumn("Principal");
+
+		var month = 0;
+		foreach (var payment in payments)
+		{
+			month++;
+			table.AddRow(
+				month.ToString("00"),
+				payment.Interest.Current.ToString("C2"),
+				payment.Principal.Current.ToString("C2"));
+		}
+
+		AnsiConsole.Write(table);
 	}
-
-	AnsiConsole.Write(table);
 }
