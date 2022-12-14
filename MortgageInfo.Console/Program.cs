@@ -12,16 +12,16 @@ AnsiConsole.Write(new Rule("Mortgage Details"));
 ///////////////////////////////////////////////////
 var results = new Mortgage(GetParameters());
 Summary(results);
-var taxRate = data.Prompt("What is your marginal tax rate?", 25.0M, v => $"{v:0.0}%") / 100;
+var taxRate = data.NumericPrompt("What is your marginal tax rate?", 25.0M, v => $"{v:0.0}%") / 100;
 await storage.SaveAsync();
 ShowSchedule(results.Schedule);
 ///////////////////////////////////////////////////
 
 Parameters GetParameters() => new()
 {
-	LoanAmount = data.Prompt("What is the loan amount?", 500_000.0M, v => v.ToString("C0")),
-	InterestRate = data.Prompt("What is interest rate?", 5.0f, v => $"{v:0.000}%") / 100,
-	Years = data.Prompt<ushort>("How many years?", 30)
+	LoanAmount = data.NumericPrompt("What is the loan amount?", 500_000.0M, v => v.ToString("C0")),
+	InterestRate = data.NumericPrompt("What is interest rate?", 5.0f, v => $"{v:0.000}%") / 100,
+	Years = data.NumericPrompt<ushort>("How many years?", 30)
 };
 
 static void Summary(Mortgage results)

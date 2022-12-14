@@ -6,7 +6,7 @@ using Throw;
 namespace MortgageInfo.Console;
 internal static class Extensions
 {
-	public static T Prompt<T>(
+	public static T NumericPrompt<T>(
 		this IDictionary<string, string> store,
 		string message,
 		T defaultValue,
