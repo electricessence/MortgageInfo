@@ -11,6 +11,8 @@ public class Mortgage
 
 	private readonly int _termMonths;
 
+	public Parameters Parameters { get; }
+
 	static decimal Trim(decimal value, decimal multiple = 100)
 	{
 		var result = Math.Ceiling(multiple * value) / multiple;
@@ -35,6 +37,8 @@ public class Mortgage
 
 	public Mortgage(Parameters parameters)
 	{
+		Parameters = parameters;
+
 		_monthlyInterestRate
 			= parameters.InterestRate / 12;
 

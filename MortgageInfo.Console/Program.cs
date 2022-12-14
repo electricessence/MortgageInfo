@@ -33,7 +33,9 @@ static void Summary(Mortgage results)
 {
 	AnsiConsole.Write(new Rule("Summary"));
 	AnsiConsole.WriteLine("Monthly Payment: {0:C2}", results.Payment);
-	AnsiConsole.WriteLine("End of Term Interest: {0:C2}", results.Schedule.Last().Interest.Total);
+	AnsiConsole.WriteLine("Interest: {0:C2} after {1} years",
+		results.Schedule.Last().Interest.Total,
+		results.Parameters.Years);
 	AnsiConsole.Write(new Rule());
 }
 
