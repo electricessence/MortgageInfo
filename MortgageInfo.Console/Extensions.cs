@@ -1,7 +1,7 @@
-﻿using System.Globalization;
+﻿using Spectre.Console;
+using System.Globalization;
 using System.Numerics;
 using Throw;
-using Spectre.Console;
 
 namespace MortgageInfo.Console;
 internal static class Extensions
