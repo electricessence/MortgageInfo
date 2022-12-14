@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MortgageInfo.Common", "MortgageInfo.Common\MortgageInfo.Common.csproj", "{DAF04542-C7CF-4052-A8D0-4F7EC3B9F839}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MortgageInfo.Common", "MortgageInfo.Common\MortgageInfo.Common.csproj", "{DAF04542-C7CF-4052-A8D0-4F7EC3B9F839}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MortgageInfo.Console", "MortgageInfo.Console\MortgageInfo.Console.csproj", "{540D54AF-D829-4CD1-9B7E-3FFC41EFA3DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ED39AF73-0C39-4A0A-9BF9-FABD839BA829}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
