@@ -1,8 +1,8 @@
-﻿using MortgageInfo.Models;
+﻿using MortgageInfo.Common;
 using Open.Collections;
 using Throw;
 
-namespace MortgageInfo;
+namespace MortgageInfo.Console;
 
 public class Mortgage
 {
@@ -24,7 +24,7 @@ public class Mortgage
 
 	static decimal Trim(double value, double multiple = 100)
 	{
-		var result = (decimal) (Math.Ceiling(multiple * value) / multiple);
+		var result = (decimal)(Math.Ceiling(multiple * value) / multiple);
 		result
 			.Throw()
 			.IfTrue(p => p * (decimal)multiple % 1 != 0)
@@ -43,7 +43,7 @@ public class Mortgage
 		_termMonths
 			= parameters.Years * 12;
 
-		var i = _monthlyInterestRate ;
+		var i = _monthlyInterestRate;
 
 		Payment
 			= Trim(_monthlyInterestRate

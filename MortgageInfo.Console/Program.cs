@@ -1,8 +1,8 @@
 ﻿
 using MoreLinq;
-using MortgageInfo;
-using MortgageInfo.Models;
-using MortgageInfo.Persistence;
+using MortgageInfo.Common;
+using MortgageInfo.Console;
+using MortgageInfo.Console.Persistence;
 using Spectre.Console;
 
 AnsiConsole.Write(new Rule("Mortgage Details"));

@@ -6,7 +6,7 @@ using System.Text.Json;
 using Throw;
 using Spectre.Console;
 
-namespace MortgageInfo;
+namespace MortgageInfo.Console;
 internal static class Extensions
 {
 	public static async ValueTask StoreAsync<T>(

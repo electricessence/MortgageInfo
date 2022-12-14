@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MortgageInfo", "MortgageInfo\MortgageInfo.csproj", "{327BE9EB-4E39-43FE-9025-287ED87473AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MortgageInfo.Common", "MortgageInfo.Common\MortgageInfo.Common.csproj", "{DAF04542-C7CF-4052-A8D0-4F7EC3B9F839}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MortgageInfo.Console", "MortgageInfo.Console\MortgageInfo.Console.csproj", "{540D54AF-D829-4CD1-9B7E-3FFC41EFA3DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{327BE9EB-4E39-43FE-9025-287ED87473AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{327BE9EB-4E39-43FE-9025-287ED87473AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{327BE9EB-4E39-43FE-9025-287ED87473AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{327BE9EB-4E39-43FE-9025-287ED87473AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAF04542-C7CF-4052-A8D0-4F7EC3B9F839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAF04542-C7CF-4052-A8D0-4F7EC3B9F839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAF04542-C7CF-4052-A8D0-4F7EC3B9F839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAF04542-C7CF-4052-A8D0-4F7EC3B9F839}.Release|Any CPU.Build.0 = Release|Any CPU
+		{540D54AF-D829-4CD1-9B7E-3FFC41EFA3DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{540D54AF-D829-4CD1-9B7E-3FFC41EFA3DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{540D54AF-D829-4CD1-9B7E-3FFC41EFA3DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{540D54AF-D829-4CD1-9B7E-3FFC41EFA3DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
