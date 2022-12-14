@@ -1,8 +1,5 @@
-﻿using System.Diagnostics;
-using Open.Text;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Numerics;
-using System.Text.Json;
 using Throw;
 using Spectre.Console;
 
