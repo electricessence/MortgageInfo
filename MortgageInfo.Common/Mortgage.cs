@@ -47,8 +47,6 @@ public class Mortgage
 		_termMonths
 			= parameters.Years * 12;
 
-		var i = _monthlyInterestRate;
-
 		Payment
 			= Trim(_monthlyInterestRate
 				* (double)parameters.LoanAmount

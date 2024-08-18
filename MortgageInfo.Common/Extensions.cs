@@ -11,7 +11,7 @@ internal static class Extensions
 		file.ThrowIfNull();
 		if (data is null) throw new ArgumentNullException(nameof(data));
 
-		using var fs = file.Open(FileMode.Create);
+        await using var fs = file.Open(FileMode.Create);
 		await JsonSerializer.SerializeAsync(fs, data);
 	}
 
@@ -20,7 +20,7 @@ internal static class Extensions
 		where T : new()
 	{
 		if (!file.Exists) return new T();
-		using var fs = file.Open(FileMode.Open);
+        await using var fs = file.Open(FileMode.Open);
 		return await JsonSerializer.DeserializeAsync<T>(fs) ?? new T();
 	}
 }
